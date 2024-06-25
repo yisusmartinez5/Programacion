@@ -162,7 +162,7 @@ def convertir_kelvin_a_Fahrenheit():
 
 while True:
     print("Convertidor")
-    print("\n1. Celsius a Fahrenheid\n2. Fahrenheit a Celsius\n3. Kelvin a Celsius\n4. Celsius a Kelvin\n5. fahrenheid\n6. Salir ")
+    print("\n1. Celsius a Fahrenheid\n2. Fahrenheit a Celsius\n3. Kelvin a Celsius\n4. Celsius a Kelvin\n5. fahrenheid a kelvin\n6. kelvin a fahrenheid\n7. Salir ")
     opcion = input("¿Qué opción quieres realizar? ")
 
     if opcion == "1":
