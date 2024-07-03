@@ -69,7 +69,7 @@ def convertir_metros():
         metros_a = input("ingresa la medida en metros: ")
         try:
             if '.' in metros_a and metros_a.endswith('.'):
-                print("El dato que has ingresado no tiene decimales. Ingresa de nuevo el dato.")
+                print("El dato que has ingresado no tiene decimales. Ingresa de nuevo el dato.")    
                 continue
             metros = float(metros_a)
             if metros < 0 or metros == 0 :
@@ -143,7 +143,7 @@ def convertir_milla():
                 if len(decimal) > 4:
                     print("El número tiene más de 4 decimales. Ingresa de nuevo la temperatura.")
                     continue
-            centimetros = millas * 160934.4
+            centimetros = millas * 160900
             metros = millas * 1609.34
             yarda = millas * 1760
             pulgada = millas * 63360
@@ -424,7 +424,7 @@ def convertir_gramo():
                 print(f"{resultado_gra} gramos son {resultado_lib} libras")
                 break
              elif opcion == "4":
-                 print(f"{resultado_gra} gramos son {tonelada} toneladas")
+                 print(f"{resultado_gra} gramos son {resultado_ton} toneladas")
                  break            
              else:
                 print("Opción no válida. Por favor, elige una opción. ")
@@ -555,6 +555,65 @@ def convertir_onza():
         except ValueError:
             print("dato no valido. ingresa un número correcto .")
 
+#libras
+def convertir_libra():
+    while True:
+        libra_a = input("ingresa la cantidad en libras: ")
+        try:
+            if '.' in libra_a and libra_a.endswith('.'):
+                print("El dato que has ingresado no tiene decimales. Ingresa de nuevo el dato.")
+                continue
+            libra = float(libra_a)
+            if libra < 0 or libra == 0 :
+                print("El dato que has ingresado esta mal. Ingresa de nuevo el dato. ")
+                continue
+            if '.' in libra_a :
+                decimal = libra_a.split('.')[1]
+                if len(decimal) > 4:
+                    print("El número tiene más de 4 decimales. Ingresa de nuevo el dato.")
+                    continue
+            gramo = libra * 453.6
+            kilogramo = libra /  2.205
+            tonelada = libra / 2205
+            onza = libra *16
+            
+            #eliminar ceros que no nos sirvan al momento de imprimir 
+            resultado_lib = ('{:.4f}'.format(libra)).rstrip('0').rstrip('.')
+            resultado_gra = ('{:.4f}'.format(gramo)).rstrip('0').rstrip('.')
+            resultado_kil = ('{:.4f}'.format(kilogramo)).rstrip('0').rstrip('.')
+            resultado_ton = ('{:.4f}'.format(tonelada)).rstrip('0').rstrip('.')
+            resultado_onz = ('{:.4f}'.format(onza)).rstrip('0').rstrip('.')
+           
+            while True:
+             print("\n1. gramos\n2. kilogramos\n3. onzas\n4. toneladas ")
+             opcion = input("¿Los libras ingresados a que unidad la quieres convertir? ")
+
+             if opcion == "1":
+                print(f"{resultado_lib} libras son {resultado_gra} gramos")
+                break
+             elif opcion == "2":
+                print(f"{resultado_lib} libras son {resultado_kil} kilogramos")
+                break
+             elif opcion == "3":
+                print(f"{resultado_lib} libras son {resultado_onz} onzas")
+                break
+             elif opcion == "4":
+                 print(f"{resultado_lib} libras son {resultado_ton} toneladas")
+                 break            
+             else:
+                print("Opción no válida. Por favor, elige una opción. ")
+            while True:
+             otra_conversion = input("¿Quieres convertir a otra unidad en libras? (si/no): ").strip().lower()
+             if otra_conversion in ['si', 'sí']:
+                break
+             elif otra_conversion == 'no':
+                return
+             else:
+                print("Dato no válido. Ingresa 'si' o 'no'.")
+        except ValueError:
+            print("dato no valido. ingresa un número correcto .")
+
+
 #toneladas
 def convertir_tonelada():
     while True:
@@ -614,6 +673,157 @@ def convertir_tonelada():
             print("dato no valido. ingresa un número correcto .")
 
 
+
+
+#temperaturas
+#celsius
+
+def convertir_celsius():
+    while True:
+        celsius_a = input("ingresa la temperatura en celsius ( recuerda que no debe ser menor ni igual a cero absoluto): ")
+        try:
+            if '.' in celsius_a and celsius_a.endswith('.'):
+                print("El dato que has ingresado no tiene decimales. Ingresa de nuevo el dato.")
+                continue
+            celsius = float(celsius_a)
+            if celsius < -273.15 or celsius == -273.15 :
+                print("La temperatura que has ingresado es menor o igual al cero absoluto (-273.15°C). Ingresa de nuevo la temperatura. ")
+                continue
+            if '.' in celsius_a :
+                decimal = celsius_a.split('.')[1]
+                if len(decimal) > 4:
+                    print("El número tiene más de 4 decimales. Ingresa de nuevo la temperatura.")
+                    continue
+#formula para la conversion Celsius
+            fahrenheid = celsius * 9/5 +32
+            kelvin = celsius + 273.15
+#eliminar ceros que no nos sirvan al momento de imprimir 
+            resultado_cel = ('{:.4f}'.format(celsius)).rstrip('0').rstrip('.')
+            resultado_fah = ('{:.4f}'.format(fahrenheid)).rstrip('0').rstrip('.')
+            resultado_kel = ('{:.4f}'.format(kelvin)).rstrip('0').rstrip('.')
+            while True:
+             print("\n1.Fahrenheid \n2. kelvin ")
+             opcion = input("¿Los datos ingresados a que temperatura la quieres convertir? ")
+
+             if opcion == "1":
+                print(f"{resultado_cel} celsius son {resultado_fah} fahrenheid")
+                break
+             elif opcion == "2":
+                print(f"{resultado_cel} celsius son {resultado_kel} kelvin")
+                break   
+             else:
+                print("Opción no válida. Por favor, elige una opción. ")
+            while True:
+             otra_conversion = input("¿Quieres convertir a otra unidad en celsius? (si/no): ").strip().lower()
+             if otra_conversion in ['si', 'sí']:
+                break
+             elif otra_conversion == 'no':
+                return
+             else:
+                print("Dato no válido. Ingresa 'si' o 'no'.")
+        except ValueError:
+            print("temperatura no válida. ingresa un número correcto .")
+
+
+#Fahrenheid
+
+def convertir_fahrenheid():
+    while True:
+        fahrenheid_a = input("ingresa la temperatura en fahrenheid ( recuerda que no debe ser menor ni igual a cero absoluto): ")
+        try:
+            if '.' in fahrenheid_a and fahrenheid_a.endswith('.'):
+                print("El dato que has ingresado no tiene decimales. Ingresa de nuevo el dato.")
+                continue
+            fahrenheid = float(fahrenheid_a)
+            if fahrenheid < -459.67 or fahrenheid == -459.67 :
+                print("La temperatura que has ingresado es menor o igual al cero absoluto (-459.67°F). Ingresa de nuevo la temperatura. ")
+                continue
+            if '.' in fahrenheid_a :
+                decimal = fahrenheid_a.split('.')[1]
+                if len(decimal) > 4:
+                    print("El número tiene más de 4 decimales. Ingresa de nuevo la temperatura.")
+                    continue
+#Formulas para las conversiones
+            celsius = (fahrenheid - 32) * 5.0 / 9.0
+            kelvin = (fahrenheid - 32) / 1.8 + 273.15
+#eliminar ceros que no nos sirvan al momento de imprimir 
+            resultado_fah = ('{:.4f}'.format(fahrenheid)).rstrip('0').rstrip('.')
+            resultado_cel = ('{:.4f}'.format(celsius)).rstrip('0').rstrip('.')
+            resultado_kel = ('{:.4f}'.format(kelvin)).rstrip('0').rstrip('.')
+            while True:
+             print("\n1.celsius \n2. kelvin ")
+             opcion = input("¿Los datos ingresados a que temperatura la quieres convertir? ")
+
+             if opcion == "1":
+                print(f"{resultado_fah} Fahrenheid son {resultado_cel} celsius")
+                break
+             elif opcion == "2":
+                print(f"{resultado_fah} Fahrenheid son {resultado_kel} kelvin")
+                break   
+             else:
+                print("Opción no válida. Por favor, elige una opción. ")
+            while True:
+             otra_conversion = input("¿Quieres convertir a otra unidad en fahrenheid? (si/no): ").strip().lower()
+             if otra_conversion in ['si', 'sí']:
+                break
+             elif otra_conversion == 'no':
+                return
+             else:
+                print("Dato no válido. Ingresa 'si' o 'no'.")
+        except ValueError:
+            print("temperatura no válida. ingresa un número correcto .")
+
+
+#Kelvin
+#validacion y eliminar ceros
+def convertir_kelvin():
+    while True:
+        kelvin_a = input("ingresa la temperatura en kelvin ( recuerda que no debe ser menor ni igual a cero absoluto): ")
+        try:
+            if '.' in kelvin_a and kelvin_a.endswith('.'):
+                print("El dato que has ingresado no tiene decimales. Ingresa de nuevo el dato.")
+                continue
+            kelvin = float(kelvin_a)
+            if kelvin < 0 or kelvin == 0 :
+                print("La temperatura que has ingresado es menor o igual al cero absoluto. Ingresa de nuevo la temperatura. ")
+                continue
+            if '.' in kelvin_a :
+                decimal = kelvin_a.split('.')[1]
+                if len(decimal) > 4:
+                    print("El número tiene más de 4 decimales. Ingresa de nuevo la temperatura.")
+                    continue
+#formulas para las conversiones
+            celsius = kelvin - 273.15
+            fahrenheid = (kelvin - 273.15) * 9/5 + 32
+#eliminar ceros que no nos sirvan al momento de imprimir 
+            resultado_kel = ('{:.4f}'.format(kelvin)).rstrip('0').rstrip('.')
+            resultado_cel = ('{:.4f}'.format(celsius)).rstrip('0').rstrip('.')
+            resultado_fah = ('{:.4f}'.format(fahrenheid)).rstrip('0').rstrip('.')
+            while True:
+             print("\n1.celsius \n2. Fahrenheid")
+             opcion = input("¿Los datos ingresados a que temperatura la quieres convertir? ")
+
+             if opcion == "1":
+                print(f"{resultado_kel} kelvin son {resultado_cel} celsius")
+                break
+             elif opcion == "2":
+                print(f"{resultado_kel} kelvin son {resultado_fah} fahrenheid")
+                break   
+             else:
+                print("Opción no válida. Por favor, elige una opción. ")
+            while True:
+             otra_conversion = input("¿Quieres convertir a otra unidad en kelvin? (si/no): ").strip().lower()
+             if otra_conversion in ['si', 'sí']:
+                break
+             elif otra_conversion == 'no':
+                return
+             else:
+                print("Dato no válido. Ingresa 'si' o 'no'.")
+        except ValueError:
+            print("temperatura no válida. ingresa un número correcto .")
+
+
+
 while True:
     print("Convertidor")
     print("\n1. longitud\n2. Masa\n3. Presion\n4. Temperatura\n5. Tiempo\n6. Velocidad\n7.columen\n8. area\n9. Salir ")
@@ -643,7 +853,7 @@ while True:
     elif opcion == "2":
          while True:
              print("\n1. gramos \n2. kilogramos\n3. onza\n4. libra\n5. tonelada\n6. Salir ")
-             opcion = input("¿Que unidad de medida quieres convertir? o presiona 7 si quieres salir ")
+             opcion = input("¿Que unidad de medida quieres convertir? o presiona 6 si quieres salir ")
 
              if opcion == "1":
                  convertir_gramo()
@@ -652,19 +862,17 @@ while True:
              elif opcion == "3":
                  convertir_onza()
              elif opcion == "4":
-                 convertir_yarda()
+                 convertir_libra()
              elif opcion == "5":
-                 convertir_pulgada() 
+                 convertir_tonelada()
              elif opcion == "6" :
-                 convertir_tonelada() 
-             elif opcion == "7" :
                  break         
              else:
                  print("Opción no válida. Por favor, elige una opción. ")
     elif opcion == "3":
          while True:
              print("\n1. atmosferas \n2. BAR\n3. libra por pulgada cuadrada\n4. Pascal\n5. Torr\n6. Salir ")
-             opcion = input("¿Que unidad de medida quieres convertir? o presiona 7 si quieres salir ")
+             opcion = input("¿Que unidad de medida quieres convertir? o presiona 6 si quieres salir ")
 
              if opcion == "1":
                  convertir_gramo()
@@ -683,7 +891,20 @@ while True:
              else:
                  print("Opción no válida. Por favor, elige una opción. ")
     elif opcion == "4":
-         convertir_centimetro()
+         while True:
+             print("\n1. Celsius \n2. Fhrenheid\n3. Kelvin\n4. Salir ")
+             opcion = input("¿Que unidad de medida quieres convertir? o presiona 4 si quieres salir ")
+
+             if opcion == "1":
+                 convertir_celsius()
+             elif opcion == "2":
+                 convertir_fahrenheid()
+             elif opcion == "3":
+                 convertir_kelvin()  
+             elif opcion == "4" :
+                 break         
+             else:
+                 print("Opción no válida. Por favor, elige una opción. ")
     elif opcion == "5":
          convertir_centimetro()
     elif opcion == "6":
